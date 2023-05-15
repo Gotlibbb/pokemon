@@ -60,8 +60,8 @@ const PokemonsList = () => {
 
   const [inputName, setInputName] = useState('')
 
-
-  const filteredPokemons = inputName.length >= 3
+  const countFilterEnable = 3
+  const filteredPokemons = inputName.length >= countFilterEnable
     ? pockemonsList.filter((i) => i.name.includes(inputName.toLowerCase()))
     : pockemonsList
 
