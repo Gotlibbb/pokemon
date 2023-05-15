@@ -35,7 +35,7 @@ import {
   TitleBlock,
   TypeItem,
   TypesBlock
-} from '@/pages/pokemons-list/pokemon-modal/pokemon-modal.styled'
+} from '@/components/styled/pokemon-modal.styled'
 
 type PokemonModalPropsType = {
   url: string,

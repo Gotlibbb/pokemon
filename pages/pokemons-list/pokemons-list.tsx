@@ -18,7 +18,7 @@ import {
   PokemonsListBlock,
   PokemonsListContainer,
   Title
-} from '@/pages/pokemons-list/pokemons-list.styled'
+} from '@/components/styled/pokemons-list.styled'
 
 type ResultType = {
     name: string,
