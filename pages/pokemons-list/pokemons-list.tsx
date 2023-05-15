@@ -7,7 +7,7 @@ import {
 } from 'react'
 import loader from '../../public/loader.svg'
 import Image from 'next/image'
-import PokemonModal from '@/pages/pokemons-list/pokemon-modal/[name]'
+import PokemonModal from '@/pages/pokemons-list/[name]'
 import {
   getStringWithFirstUpperLetter
 } from '@/components/helpers'

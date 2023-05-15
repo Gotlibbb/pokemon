@@ -5,9 +5,9 @@ import {
   getStringWithFirstUpperLetter
 } from '@/components/helpers'
 import Image from 'next/image'
-import loader from '../../../public/loader.svg'
-import cross from '../../../public/cross.svg'
-import notFound from '../../../public/404.png'
+import loader from '../../public/loader.svg'
+import cross from '../../public/cross.svg'
+import notFound from '../../public/404.png'
 import {
   useRouter
 } from 'next/router'
