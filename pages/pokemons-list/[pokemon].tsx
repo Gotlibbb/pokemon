@@ -11,31 +11,7 @@ import notFound from '../../public/404.png'
 import {
   useRouter
 } from 'next/router'
-import {
-  AbilitiesBlock,
-  ChargeBlock,
-  ChargeLine,
-  Cross,
-  Generation,
-  Id,
-  IdBlock,
-  InfoBlock,
-  LeftBlock,
-  MainSkillsBlock,
-  ModalBlock,
-  ModalContainer,
-  Name,
-  NotFoundBlock,
-  Overlay,
-  RightBlock,
-  Skill,
-  SkillCount,
-  SkillName,
-  SkillsBlock,
-  TitleBlock,
-  TypeItem,
-  TypesBlock
-} from '@/components/styled/pokemon-modal.styled'
+import * as S from '@/components/styled/pokemon-modal.styled'
 
 
 type ResponseDataType = {
@@ -80,108 +56,108 @@ const PokemonModal = () => {
   const typeNames = types?.map((i) => i.type.name) || []
 
   if (isLoad) {
-    return <Overlay>
+    return <S.Overlay>
       <Image src={loader} alt={'loader'} />
-    </Overlay>
+    </S.Overlay>
   }
 
   if (!isLoad && !data?.sprites) {
-    return <Overlay>
-      <ModalContainer>
-        <Cross src={cross} alt={'cross'} onClick={handleClose} />
-        <ModalBlock>
-          <NotFoundBlock>
+    return <S.Overlay>
+      <S.ModalContainer>
+        <S.Cross src={cross} alt={'cross'} onClick={handleClose} />
+        <S.ModalBlock>
+          <S.NotFoundBlock>
             <Image width={590} src={notFound} alt={'404'}/>
             <span>404</span>
-          </NotFoundBlock>
-        </ModalBlock>
-      </ModalContainer>
-    </Overlay>
+          </S.NotFoundBlock>
+        </S.ModalBlock>
+      </S.ModalContainer>
+    </S.Overlay>
   }
 
-  return <Overlay>
-    <ModalContainer>
-      <Cross src={cross} alt={'cross'} onClick={handleClose} />
-      <ModalBlock>
-        <LeftBlock types={typeNames} >
+  return <S.Overlay>
+    <S.ModalContainer>
+      <S.Cross src={cross} alt={'cross'} onClick={handleClose} />
+      <S.ModalBlock>
+        <S.LeftBlock types={typeNames} >
           <Image src={imageUrl} alt={'pokemon'} width={325} height={325} />
-          <TypesBlock>
+          <S.TypesBlock>
             {typeNames?.map((i) =>
-              <TypeItem key={i}>
+              <S.TypeItem key={i}>
                 {i}
-              </TypeItem>)}
-          </TypesBlock>
-        </LeftBlock>
-        <RightBlock types={typeNames}>
-          <TitleBlock>
-            <Name>
+              </S.TypeItem>)}
+          </S.TypesBlock>
+        </S.LeftBlock>
+        <S.RightBlock types={typeNames}>
+          <S.TitleBlock>
+            <S.Name>
               {getStringWithFirstUpperLetter(name)}
-            </Name>
-            <IdBlock>
-              <Generation>
+            </S.Name>
+            <S.IdBlock>
+              <S.Generation>
               Generation 1
-              </Generation>
-              <Id>
+              </S.Generation>
+              <S.Id>
                 {id}
-              </Id>
-            </IdBlock>
-          </TitleBlock>
-          <InfoBlock>
-            <AbilitiesBlock>
+              </S.Id>
+            </S.IdBlock>
+          </S.TitleBlock>
+          <S.InfoBlock>
+            <S.AbilitiesBlock>
               <div>Abilities</div>
               <div className={'values'}>{abilities?.map((ab) => <span key={ab.ability.name}>{ab.ability.name}</span>)}</div>
-            </AbilitiesBlock>
-            <MainSkillsBlock>
-              <ChargeBlock>
+            </S.AbilitiesBlock>
+            <S.MainSkillsBlock>
+              <S.ChargeBlock>
                 <div>Healthy Points</div>
                 <div className="bold">{hp?.base_stat}</div>
-                <ChargeLine isHp count={Number(hp?.base_stat)} maxCount={100}/>
-              </ChargeBlock>
-              <ChargeBlock>
+                <S.ChargeLine isHp count={Number(hp?.base_stat)} maxCount={100}/>
+              </S.ChargeBlock>
+              <S.ChargeBlock>
                 <div>Experience</div>
                 <div className="bold">{baseExperience}</div>
-                <ChargeLine count={Number(baseExperience)} maxCount={100}/>
-              </ChargeBlock>
-            </MainSkillsBlock>
-            <SkillsBlock>
-              <Skill>
-                <SkillCount>
+                <S.ChargeLine count={Number(baseExperience)} maxCount={100}/>
+              </S.ChargeBlock>
+            </S.MainSkillsBlock>
+            <S.SkillsBlock>
+              <S.Skill>
+                <S.SkillCount>
                   {defense?.base_stat}
-                </SkillCount>
-                <SkillName>
+                </S.SkillCount>
+                <S.SkillName>
                 Defense
-                </SkillName>
-              </Skill>
-              <Skill>
-                <SkillCount>
+                </S.SkillName>
+              </S.Skill>
+              <S.Skill>
+                <S.SkillCount>
                   {attack?.base_stat}
-                </SkillCount>
-                <SkillName>
+                </S.SkillCount>
+                <S.SkillName>
                 Attack
-                </SkillName>
-              </Skill>
-              <Skill>
-                <SkillCount>
+                </S.SkillName>
+              </S.Skill>
+              <S.Skill>
+                <S.SkillCount>
                   {spAttack?.base_stat}
-                </SkillCount>
-                <SkillName>
+                </S.SkillCount>
+                <S.SkillName>
                 Sp Attack
-                </SkillName>
-              </Skill>
-              <Skill>
-                <SkillCount>
+                </S.SkillName>
+              </S.Skill>
+              <S.Skill>
+                <S.SkillCount>
                   {spDefense?.base_stat}
-                </SkillCount>
-                <SkillName>
+                </S.SkillCount>
+                <S.SkillName>
                 Sp Defense
-                </SkillName>
-              </Skill>
-            </SkillsBlock>
-          </InfoBlock>
-        </RightBlock>
-      </ModalBlock>
-    </ModalContainer>
-  </Overlay>
+                </S.SkillName>
+              </S.Skill>
+            </S.SkillsBlock>
+          </S.InfoBlock>
+        </S.RightBlock>
+      </S.ModalBlock>
+    </S.ModalContainer>
+  </S.Overlay>
 }
 
 

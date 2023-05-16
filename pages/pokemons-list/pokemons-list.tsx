@@ -11,14 +11,7 @@ import PokemonModal from '@/pages/pokemons-list/[pokemon]'
 import {
   getStringWithFirstUpperLetter
 } from '@/components/helpers'
-import {
-  CustomInput,
-  LoaderBlock,
-  PokemonItem,
-  PokemonsListBlock,
-  PokemonsListContainer,
-  Title
-} from '@/components/styled/pokemons-list.styled'
+import * as S from '@/components/styled/pokemons-list.styled'
 import {
   useRouter
 } from 'next/router'
@@ -84,11 +77,11 @@ const PokemonsList = () => {
     })
   }
 
-  return <PokemonsListContainer>
-    <Title>
+  return <S.PokemonsListContainer>
+    <S.Title>
       {data?.pages[0].count} <span className={'bold'}>Pokemons</span> for you to choose your favorite
-    </Title>
-    <CustomInput
+    </S.Title>
+    <S.CustomInput
       placeholder={'Encuentra tu pokémon...'}
       onChange={(e) => {
         setInputName(e.target.value)
@@ -97,17 +90,17 @@ const PokemonsList = () => {
       dataLength={filteredPokemons.length}
       next={fetchNextPage}
       hasMore={Boolean(hasNextPage)}
-      loader={inputName ? null : <LoaderBlock><Image src={loader} alt={'loader'}/></LoaderBlock>}>
-      <PokemonsListBlock>
+      loader={inputName ? null : <S.LoaderBlock><Image src={loader} alt={'loader'}/></S.LoaderBlock>}>
+      <S.PokemonsListBlock>
         {filteredPokemons.map((i) =>
-          <PokemonItem key={i.name} onClick={() => onPokemonItemClick(i.name)}>
+          <S.PokemonItem key={i.name} onClick={() => onPokemonItemClick(i.name)}>
             {getStringWithFirstUpperLetter(i.name)}
-          </PokemonItem>
+          </S.PokemonItem>
         )}
-      </PokemonsListBlock>
+      </S.PokemonsListBlock>
     </InfiniteScroll>
     {router.query.pokemon && <PokemonModal />}
-  </PokemonsListContainer>
+  </S.PokemonsListContainer>
 }
 
 
