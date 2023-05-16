@@ -9,7 +9,6 @@ export const LoaderBlock = styled.div`
   align-items: flex-start;
 `
 
-
 export const PokemonsListBlock = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -46,6 +45,7 @@ export const Title = styled.div`
   }
   margin-bottom: 34px;
 `
+
 export const CustomInput = styled.input`
   box-shadow: 4px 4px 16px rgba(1, 28, 64, 0.2);
   background: #F2F2F2;

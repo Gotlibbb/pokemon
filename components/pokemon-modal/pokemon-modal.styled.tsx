@@ -19,7 +19,6 @@ export const Overlay = styled.div`
   background-color: rgba(33,33,33, .5);
 `
 
-
 export const ModalContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -46,6 +45,7 @@ export const NotFoundBlock = styled.div`
     height: 100%;
     border-radius: 16px;
   }
+  
   span {
     z-index: 20;
     position: absolute;
@@ -108,6 +108,7 @@ export const Generation = styled.div`
   color: #FDFDFD;
   font-family: 'Source Sans Pro', sans-serif;
 `
+
 export const Id = styled.div`
   display: flex;
   align-items: center;
@@ -125,7 +126,6 @@ export const InfoBlock = styled.div`
   gap: 22px;
 `
 
-
 export const BasicBlock = styled.div`
   padding: 20px;
   background-color: #FDFDFD;
@@ -134,12 +134,10 @@ export const BasicBlock = styled.div`
   box-shadow: 4px 4px 4px rgba(33, 33, 33, 0.1);
 `
 
-
 export const AbilitiesBlock = styled(BasicBlock)`
   display: flex;
   flex-direction: column;
   font-size: 16px;
-  //width: 264px;
   padding-top: 8px;
   padding-bottom: 8px;
   
@@ -148,12 +146,14 @@ export const AbilitiesBlock = styled(BasicBlock)`
     gap: 3px;
   }
 `
+
 export const MainSkillsBlock = styled(BasicBlock)`
   display: flex;
   gap: 28px;
   width: 397px;
   font-size: 16px;
 `
+
 export const ChargeBlock = styled.div`
   display: flex;
   flex-direction: column;
@@ -162,7 +162,8 @@ export const ChargeBlock = styled.div`
     font-weight: 700;
   }
 `
-export const ChargeLine = styled.div<{isHp?: boolean, count: number, maxCount: number }>`
+
+export const ChargeLine = styled.div<{isGreenLine?: boolean, count: number, maxCount: number }>`
   background-color: #F6F7F9;
   width: 170px;
   height: 6px;
@@ -171,7 +172,7 @@ export const ChargeLine = styled.div<{isHp?: boolean, count: number, maxCount: n
   &::after {
     content: "";
     background-color: ${(props) =>
-    (props.isHp
+    (props.isGreenLine
       ? '#64D368'
       : '#F5DB13')
 };
@@ -193,11 +194,11 @@ export const ChargeLine = styled.div<{isHp?: boolean, count: number, maxCount: n
   }
 `
 
-
 export const SkillsBlock = styled.div`
   display: flex;
   gap: 23px;
 `
+
 export const Skill = styled(BasicBlock)`
   display: flex;
   flex-direction: column;
@@ -227,6 +228,7 @@ export const SkillCount = styled.div`
 `
 
 export const LeftBlock = styled.div<{types: string[]}>`
+  
   ${(props) => {
     const [firstColor, secondColor] = getCurrentColor(props.types)
     return css`
