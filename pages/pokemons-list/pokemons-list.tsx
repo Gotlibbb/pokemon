@@ -7,7 +7,7 @@ import {
 } from 'react'
 import loader from '../../public/loader.svg'
 import Image from 'next/image'
-import PokemonModal from '@/pages/pokemons-list/[name]'
+import PokemonModal from '@/pages/pokemons-list/[pokemon]'
 import {
   getStringWithFirstUpperLetter
 } from '@/components/helpers'
@@ -19,6 +19,9 @@ import {
   PokemonsListContainer,
   Title
 } from '@/components/styled/pokemons-list.styled'
+import {
+  useRouter
+} from 'next/router'
 
 type ResultType = {
     name: string,
@@ -65,20 +68,21 @@ const PokemonsList = () => {
     ? pockemonsList.filter((i) => i.name.includes(inputName.toLowerCase()))
     : pockemonsList
 
-  const [selectedPokemonUrl, setSelectedPokemonUrl] = useState('')
+  const router = useRouter()
 
   useEffect(() => {
-    if (selectedPokemonUrl) {
+    if (router.query.pokemon) {
       document.body.style.overflow = 'hidden'
     } else {
       document.body.style.overflow = 'auto'
     }
-  }, [selectedPokemonUrl])
+  }, [router.query.pokemon])
 
-  const onPokemonItemClick = (url: string) => {
-    setSelectedPokemonUrl(url)
+  const onPokemonItemClick = (name: string) => {
+    router.push(`/pokemons-list?pokemon=${name}`, {}, {
+      scroll: false
+    })
   }
-
 
   return <PokemonsListContainer>
     <Title>
@@ -96,12 +100,13 @@ const PokemonsList = () => {
       loader={inputName ? null : <LoaderBlock><Image src={loader} alt={'loader'}/></LoaderBlock>}>
       <PokemonsListBlock>
         {filteredPokemons.map((i) =>
-          <PokemonItem key={i.url} onClick={() => onPokemonItemClick(i.url)}>
+          <PokemonItem key={i.name} onClick={() => onPokemonItemClick(i.name)}>
             {getStringWithFirstUpperLetter(i.name)}
-          </PokemonItem>)}
+          </PokemonItem>
+        )}
       </PokemonsListBlock>
     </InfiniteScroll>
-    {selectedPokemonUrl && <PokemonModal url={selectedPokemonUrl} closeModal={() => setSelectedPokemonUrl('')}/>}
+    {router.query.pokemon && <PokemonModal />}
   </PokemonsListContainer>
 }
 

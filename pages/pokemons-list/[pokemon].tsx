@@ -1,5 +1,5 @@
 import React, {
-  FC, useEffect, useState
+  useEffect, useState
 } from 'react'
 import {
   getStringWithFirstUpperLetter
@@ -37,11 +37,6 @@ import {
   TypesBlock
 } from '@/components/styled/pokemon-modal.styled'
 
-type PokemonModalPropsType = {
-  url: string,
-  closeModal: () => void
-}
-
 
 type ResponseDataType = {
   id: string,
@@ -53,32 +48,25 @@ type ResponseDataType = {
   sprites: any
 };
 
-const PokemonModal: FC<PokemonModalPropsType> = (props) => {
+const PokemonModal = () => {
   const router = useRouter()
 
   const [isLoad, setIsLoad] = useState(true)
 
   useEffect(() => {
-    if (router.query.name) {
-      fetch(`https://pokeapi.co/api/v2/pokemon/${router.query.name}`).then((res) => {
+    if (router.query.pokemon) {
+      fetch(`https://pokeapi.co/api/v2/pokemon/${router.query.pokemon}`).then((res) => {
         res.json().then((r) => setData(r)).finally(() => setIsLoad(false))
       })
     }
-    if (props.url) {
-      fetch(props.url).then((res) => {
-        res.json().then((r) => setData(r)).finally(() => setIsLoad(false))
-      })
-    }
-  }, [props.url, router.query.name])
+  }, [router.query.pokemon])
 
   const [data, setData] = useState<ResponseDataType | null>(null)
 
   const handleClose = () => {
-    if (props.closeModal) {
-      props.closeModal()
-    } else {
-      router.push('/pokemons-list')
-    }
+    router.push('/pokemons-list', {}, {
+      scroll: false
+    })
   }
 
   const {
@@ -90,7 +78,6 @@ const PokemonModal: FC<PokemonModalPropsType> = (props) => {
   const [hp, attack, defense, spAttack, spDefense] = stats || []
 
   const typeNames = types?.map((i) => i.type.name) || []
-
 
   if (isLoad) {
     return <Overlay>
