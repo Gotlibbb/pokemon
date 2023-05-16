@@ -95,7 +95,6 @@
     "no-shadow": "off",
     "no-shadow-restricted-names": "error",
     "no-undef-init": "error",
-    "no-undefined": "error",
     "no-use-before-define": "off",
     // Node.js and CommonJS
     "callback-return": "off",

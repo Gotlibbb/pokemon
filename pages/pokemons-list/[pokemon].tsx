@@ -40,7 +40,7 @@ const PokemonModal = () => {
   const [data, setData] = useState<ResponseDataType | null>(null)
 
   const handleClose = () => {
-    router.push('/pokemons-list', {}, {
+    router.push('/pokemons-list', undefined, {
       scroll: false
     })
   }

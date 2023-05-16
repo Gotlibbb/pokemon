@@ -72,7 +72,7 @@ const PokemonsList = () => {
   }, [router.query.pokemon])
 
   const onPokemonItemClick = (name: string) => {
-    router.push(`/pokemons-list?pokemon=${name}`, {}, {
+    router.push(`/pokemons-list?pokemon=${name}`, undefined, {
       scroll: false
     })
   }
