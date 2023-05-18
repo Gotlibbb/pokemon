@@ -1,7 +1,5 @@
-import {
-  FC
-} from 'react'
-import * as S from '@/components/pokemon-modal/pokemon-modal.styled'
+import { FC } from 'react'
+import * as S from '@/components/pokemon-modal/pokemon-info-modal.styled'
 import cross from '@/public/cross.svg'
 import Image from 'next/image'
 import notFound from '@/public/404.png'

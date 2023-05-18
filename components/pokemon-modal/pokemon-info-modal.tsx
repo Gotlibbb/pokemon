@@ -1,15 +1,9 @@
-import React, {
-  FC
-} from 'react'
-import * as S from '@/components/pokemon-modal/pokemon-modal.styled'
+import { FC } from 'react'
+import * as S from '@/components/pokemon-modal/pokemon-info-modal.styled'
 import cross from '@/public/cross.svg'
 import Image from 'next/image'
-import {
-  getStringWithFirstUpperLetter
-} from '@/components/helpers'
-import {
-  MainSkillComponent, SkillComponent
-} from '@/components/pokemon-modal/components'
+import { getStringWithFirstUpperLetter } from '@/components/helpers'
+import { MainSkillComponent, SkillComponent } from '@/components/pokemon-modal/components'
 
 type PokemonModalPropsType = {
     handleClose: () => void
@@ -25,7 +19,7 @@ type PokemonModalPropsType = {
     spDefense:string
     spAttack:string
 }
-export const PokemonModal:FC<PokemonModalPropsType> = (props) => {
+export const PokemonInfoModal:FC<PokemonModalPropsType> = (props) => {
   const {
     name,
     spAttack,
@@ -47,7 +41,7 @@ export const PokemonModal:FC<PokemonModalPropsType> = (props) => {
         <S.Cross src={cross} alt={'cross'} onClick={handleClose} />
         <S.ModalBlock>
           <S.LeftBlock types={typeNames} >
-            <Image src={imageUrl} alt={'pokemon'} width={325} height={325} />
+            <Image src={imageUrl} alt={'pokemon-modal'} width={325} height={325} />
             <S.TypesBlock>
               {typeNames?.map((i) =>
                 <S.TypeItem key={i}>

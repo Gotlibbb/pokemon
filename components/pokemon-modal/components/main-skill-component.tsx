@@ -1,7 +1,5 @@
-import React, {
-  FC
-} from 'react'
-import * as S from '@/components/pokemon-modal/pokemon-modal.styled'
+import React, { FC } from 'react'
+import * as S from '@/components/pokemon-modal/pokemon-info-modal.styled'
 
 export const MainSkillComponent:FC<{skillName: string, skillValue?: string, isGreenLine?: boolean}> = ({
   isGreenLine, skillValue, skillName

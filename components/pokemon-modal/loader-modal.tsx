@@ -1,4 +1,4 @@
-import * as S from '@/components/pokemon-modal/pokemon-modal.styled'
+import * as S from '@/components/pokemon-modal/pokemon-info-modal.styled'
 import Image from 'next/image'
 import loader from '@/public/loader.svg'
 

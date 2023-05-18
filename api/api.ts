@@ -1,6 +1,4 @@
-import {
-  QueryFunctionContext
-} from 'react-query'
+import { QueryFunctionContext } from 'react-query'
 
 export type GetPokemonsResponsType = {
     count: number,

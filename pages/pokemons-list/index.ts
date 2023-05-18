@@ -1,3 +1,1 @@
-export {
-  default
-} from './pokemons-list'
+export { default, getServerSideProps } from './pokemons-list'

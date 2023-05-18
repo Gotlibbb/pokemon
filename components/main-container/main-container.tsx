@@ -1,9 +1,5 @@
-import React, {
-  FC, ReactNode
-} from 'react'
-import {
-  Navbar
-} from '@/components/navbar'
+import React, { FC, ReactNode } from 'react'
+import { Navbar } from '@/components/navbar'
 import styled from 'styled-components'
 
 type MainContainerPropsType = {

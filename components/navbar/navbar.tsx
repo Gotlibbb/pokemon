@@ -1,13 +1,9 @@
 import Image from 'next/image'
 import logo from '../../public/logo.svg'
 import Link from 'next/link'
-import {
-  useRouter
-} from 'next/router'
+import { useRouter } from 'next/router'
 import * as S from './navbar.styled'
-import {
-  urls
-} from '@/components/helpers'
+import { urls } from '@/components/helpers'
 
 export const Navbar = () => {
   const router = useRouter()

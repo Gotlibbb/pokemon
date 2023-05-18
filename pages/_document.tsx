@@ -1,9 +1,5 @@
-import Document, {
-  DocumentContext, Head, Html, Main, NextScript
-} from 'next/document'
-import {
-  ServerStyleSheet
-} from 'styled-components'
+import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document'
+import { ServerStyleSheet } from 'styled-components'
 
 const MyDocument = () =>
   <Html>
@@ -13,7 +9,6 @@ const MyDocument = () =>
       <NextScript />
     </body>
   </Html>
-
 
 MyDocument.getInitialProps = async (ctx: DocumentContext) => {
   const sheet = new ServerStyleSheet()

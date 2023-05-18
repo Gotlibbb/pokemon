@@ -5,5 +5,5 @@ export {
   NotFoundModal
 } from './not-found-modal'
 export {
-  PokemonModal
-} from './pokemon-modal'
+  PokemonInfoModal
+} from './pokemon-info-modal'

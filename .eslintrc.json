@@ -164,7 +164,6 @@
     "no-underscore-dangle": "off",
     "no-unneeded-ternary": "error",
     "no-whitespace-before-property": "error",
-    "object-curly-newline": ["error", { "minProperties": 1 }],
     "object-curly-spacing": ["error", "always"],
     "object-property-newline": "error",
     "one-var": ["error", "never"],
@@ -192,8 +191,8 @@
     "template-tag-spacing": "error",
     "unicode-bom": "error",
     "wrap-regex": "off",
+    "import/no-anonymous-default-export": "off",
     // ECMAScript 6
-    "arrow-body-style": ["error", "as-needed"],
     "arrow-parens": "error",
     "arrow-spacing": "error",
     "generator-star-spacing": "error",

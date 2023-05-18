@@ -1,7 +1,5 @@
-import React, {
-  FC
-} from 'react'
-import * as S from '@/components/pokemon-modal/pokemon-modal.styled'
+import { FC } from 'react'
+import * as S from '@/components/pokemon-modal/pokemon-info-modal.styled'
 
 export const SkillComponent:FC<{skillName: string, skillValue?: string}> = ({
   skillValue, skillName

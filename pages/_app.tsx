@@ -1,33 +1,26 @@
-import {
-  AppProps
-} from 'next/app'
-import {
-  ThemeProvider
-} from 'styled-components'
+import { AppProps } from 'next/app'
 import MainContainer from '@/components/main-container/main-container'
-import {
-  FC
-} from 'react'
-import {
-  QueryClient, QueryClientProvider
-} from 'react-query'
-import {
-  GlobalStyle
-} from '@/pages/global-style'
+import { FC } from 'react'
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { GlobalStyle } from '@/pages/global-style'
+import { PokemonModalPagePropsType, PokemonsListPagePropsType } from '@/types/pages-props-types'
 
 const queryClient = new QueryClient()
 
-const App: FC<AppProps> = ({
+type PagePropsType = PokemonsListPagePropsType | PokemonModalPagePropsType
+
+const App: FC<AppProps<PagePropsType>> = ({
   Component, pageProps
-}) =>
-  <QueryClientProvider client={queryClient}>
-    <ThemeProvider theme={{}}>
+}) => {
+  return (
+    <QueryClientProvider client={queryClient}>
       <MainContainer>
-        <GlobalStyle />
+        <GlobalStyle/>
         <Component {...pageProps} />
       </MainContainer>
-    </ThemeProvider>
-  </QueryClientProvider>
+    </QueryClientProvider>
+  )
+}
 
 
 export default App
