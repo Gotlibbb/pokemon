@@ -2,7 +2,7 @@ import { AppProps } from 'next/app'
 import MainContainer from '@/components/main-container/main-container'
 import { FC } from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
-import { GlobalStyle } from '@/pages/global-style'
+import { GlobalStyle } from '@/global-style'
 import { PokemonModalPagePropsType, PokemonsListPagePropsType } from '@/types/pages-props-types'
 
 const queryClient = new QueryClient()
